@@ -1,0 +1,20 @@
+{
+  "name": "grace-and-sterling",
+  "version": "0.0.1",
+  "description": "Grace and Sterling are getting hitched!",
+  "main": "index.js",
+  "scripts": {
+    "build": "jekyll build",
+    "dev": "bundle exec jekyll serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamPedley/grace-and-sterling.git"
+  },
+  "author": "Sam Pedley",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SamPedley/grace-and-sterling/issues"
+  },
+  "homepage": "https://github.com/SamPedley/grace-and-sterling#readme"
+}
