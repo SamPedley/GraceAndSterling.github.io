@@ -1,0 +1,23 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+// - - - - - - - - -
+//     Theme
+// - - - - - - - - -
+$primary: rgba(103, 181, 135, 1.0);
+$white: #ffffff;
+
+.site-nav
+{
+  background-color: $primary;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.site-nav a
+{
+  color: $white;
+}
+
+// For now ->
+h2, h1 { text-align: center; }
