@@ -1,0 +1,60 @@
+
+.site-footer
+{
+  margin-top: 2rem;
+  padding: 2.5rem 1rem 0.5rem 1rem;
+  background-color: rgba(236, 236, 236, 1.0);
+  font-size: 0.8rem;
+}
+
+.site-footer p
+{
+  margin: 0;
+}
+
+.site-footer nav
+{
+  flex-grow: 1;
+  text-align: right;
+}
+
+
+.site-footer a
+{
+  color: $dark;
+
+  transition: 0.3s ease-in-out;
+  padding-right: 0.5rem;
+
+  &:hover, &:active, &:focus
+  {
+    color: black;
+  }
+
+  &:after
+  {
+    padding-left: 0.5rem;
+    content: '|';
+  }
+
+  &:last-child
+  {
+    padding-right: 0;
+  }
+  &:last-child:after
+  {
+    padding-left: 0;
+    content: '';
+  }
+}
+
+
+
+.inner
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: $max_width;
+  margin: 0 auto;
+}

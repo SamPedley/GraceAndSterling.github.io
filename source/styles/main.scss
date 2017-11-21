@@ -1,11 +1,15 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+
 // - - - - - - - - -
 //     Theme
 // - - - - - - - - -
 $primary: rgba(103, 181, 135, 1.0);
 $white: #ffffff;
 $dark: rgba(55, 64, 66, 1.0);
+$max_width: 1100px;
+
+@import "footer";
 
 a:hover
 {
@@ -95,7 +99,7 @@ a:hover
 .galery
 {
   margin: 3rem auto;
-  max-width: 900px;
+  max-width: $max_width;
   padding: 0 1rem;
 }
 .galery h2
@@ -105,58 +109,6 @@ a:hover
   margin-bottom: 2rem;
   font-family: 'Satisfy', cursive;
   text-align: center;
-}
-
-.site-footer
-{
-  margin-top: 2rem;
-  padding: 2.5rem 1rem 0.5rem 1rem;
-  background-color: rgba(236, 236, 236, 1.0);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.8rem;
-}
-
-.site-footer p
-{
-  margin: 0;
-}
-
-.site-footer nav
-{
-  flex-grow: 1;
-  text-align: right;
-}
-
-
-.site-footer a
-{
-  color: $dark;
-
-  transition: 0.3s ease-in-out;
-  padding-right: 0.5rem;
-
-  &:hover, &:active, &:focus
-  {
-    color: black;
-  }
-
-  &:after
-  {
-    padding-left: 0.5rem;
-    content: '|';
-  }
-
-  &:last-child
-  {
-    padding-right: 0;
-  }
-  &:last-child:after
-  {
-    padding-left: 0;
-    content: '';
-  }
 }
 
 

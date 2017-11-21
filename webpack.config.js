@@ -18,12 +18,14 @@ module.exports = (env = {}) => ({
 
   resolve: {
     extensions: ['.js', '.jsx'],
-    modules: [resolve('source'), 'node_modules']
+    modules: [resolve('source'), 'node_modules'],
+    alias: {
+      vue: 'vue/dist/vue.js'
+    }
   },
 
   module: {
     loaders: [
-      { test: /\.js/, exclude: /node_modules/, loaders: ['babel-loader'] },
       { test: /\.(woff|png|jpg|gif)$/, loader: 'file-loader' },
       {
         test: /\.vue$/,
@@ -36,6 +38,7 @@ module.exports = (env = {}) => ({
           }
         }
       },
+      { test: /\.js/, exclude: /node_modules/, loaders: ['babel-loader'] },
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
