@@ -24,6 +24,7 @@ module.exports = (env = {}) => ({
   module: {
     loaders: [
       { test: /\.js/, exclude: /node_modules/, loaders: ['babel-loader'] },
+      { test: /\.(woff|png|jpg|gif)$/, loader: 'file-loader' },
       {
         test: /\.vue$/,
         loader: 'vue-loader',

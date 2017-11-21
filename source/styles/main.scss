@@ -5,6 +5,13 @@
 // - - - - - - - - -
 $primary: rgba(103, 181, 135, 1.0);
 $white: #ffffff;
+$dark: rgba(55, 64, 66, 1.0);
+
+a:hover
+{
+  text-decoration: none;
+}
+
 
 .site-nav
 {
@@ -19,5 +26,160 @@ $white: #ffffff;
   color: $white;
 }
 
-// For now ->
-h2, h1 { text-align: center; }
+.hero
+{
+  // background: url('../../public/img/save-the-date.jpg') no-repeat center center;
+  background: url('../../public/img/flowers.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 90vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10vh 1rem;
+}
+
+.hero h1
+{
+  font-size: 3rem;
+}
+
+.hero h2
+{
+  font-size: 2rem;
+}
+
+.hero h1, .hero h2
+{
+  font-family: 'Satisfy', cursive;
+  color: white;
+  text-align: center;
+}
+
+.hero-call
+{
+  color: white;
+  display: block;
+  border: 1px solid white;
+  background: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+
+  border-radius: 2px;
+  font-size: 1.2rem;
+
+  transition: all 0.3s ease-in-out; 
+
+  &:hover, &:focus, &:active
+  {
+    color: $white;
+    text-decoration: none;
+    background: $white;
+    color: $dark;
+  }
+}
+
+.countdown
+{
+  background: $primary;
+  padding: 2rem 1rem;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.galery
+{
+  margin: 3rem auto;
+  max-width: 900px;
+  padding: 0 1rem;
+}
+.galery h2
+{
+  color: $dark;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-family: 'Satisfy', cursive;
+  text-align: center;
+}
+
+.site-footer
+{
+  margin-top: 2rem;
+  padding: 2.5rem 1rem 0.5rem 1rem;
+  background-color: rgba(236, 236, 236, 1.0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.8rem;
+}
+
+.site-footer p
+{
+  margin: 0;
+}
+
+.site-footer nav
+{
+  flex-grow: 1;
+  text-align: right;
+}
+
+
+.site-footer a
+{
+  color: $dark;
+
+  transition: 0.3s ease-in-out;
+  padding-right: 0.5rem;
+
+  &:hover, &:active, &:focus
+  {
+    color: black;
+  }
+
+  &:after
+  {
+    padding-left: 0.5rem;
+    content: '|';
+  }
+
+  &:last-child
+  {
+    padding-right: 0;
+  }
+  &:last-child:after
+  {
+    padding-left: 0;
+    content: '';
+  }
+}
+
+
+.gal-img
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.gal-left
+{
+  width: 54%;
+}
+
+.gal-right
+{
+  width: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.gal-right img
+{
+  display: block;
+}
