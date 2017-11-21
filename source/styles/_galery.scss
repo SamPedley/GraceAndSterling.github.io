@@ -1,0 +1,42 @@
+
+.galery
+{
+  margin: 3rem auto;
+  max-width: $max_width;
+  padding: 0 1rem;
+}
+
+.galery h2
+{
+  color: $dark;
+  margin-bottom: 2rem;
+  font-family: 'Satisfy', cursive;
+  text-align: center;
+
+  font-size: 3rem;
+  @media screen and (max-width: 400px) { font-size: 2.5rem; }
+}
+
+.gal-img
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.gal-left
+{
+  width: 54%;
+}
+
+.gal-right
+{
+  width: 43%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.gal-right img
+{
+  display: block;
+}

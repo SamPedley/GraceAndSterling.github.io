@@ -1,4 +1,5 @@
 const {resolve} = require('path')
+const webpack = require('webpack')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = (env = {}) => ({
@@ -49,7 +50,14 @@ module.exports = (env = {}) => ({
     ]
   },
 
-  plugins: [ new ExtractTextPlugin('styles.css') ],
+  plugins: [
+    new ExtractTextPlugin('styles.css'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: env.prod ? '"production"' : '"dev"'
+      }
+    })
+  ],
 
   devtool: env.prod ? 'source-map' : 'eval'
 });

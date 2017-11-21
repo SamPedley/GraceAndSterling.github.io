@@ -1,0 +1,64 @@
+.hero
+{
+  background: url('../../public/img/flowers.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 400px;
+  height: 90vh;
+  max-height: 825px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 10vh 1rem;
+
+  @media screen and (max-width: 500px) {
+    height: 65vh;
+  }
+}
+
+.hero h1, .hero h2
+{
+  font-family: 'Satisfy', cursive;
+  color: $white;
+  text-align: center;
+}
+
+.hero h1
+{
+  font-size: 4rem;
+  @media screen and (max-width: 500px) { font-size: 3.2rem; }
+  @media screen and (max-width: 400px) { font-size: 2.5rem; }
+}
+
+.hero h2
+{
+  font-size: 2rem;
+  @media screen and (max-width: 425px) { font-size: 1.5rem; }
+}
+
+.hero-button
+{
+  color: $white;
+  display: block;
+  border: 1px solid $white;
+  background: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 1rem 2rem;
+
+  border-radius: 2px;
+  font-size: 1.2rem;
+
+  transition: all 0.3s ease-in-out; 
+
+  &:hover, &:focus, &:active
+  {
+    color: $white;
+    text-decoration: none;
+    background: $white;
+    color: $dark;
+  }
+}

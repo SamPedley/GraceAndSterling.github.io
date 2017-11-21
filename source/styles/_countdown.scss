@@ -1,0 +1,15 @@
+.countdown
+{
+  box-sizing: border-box;
+  background: $primary;
+  // padding: 2rem 1rem;
+  color: white;
+  text-align: center;
+  font-size: 1.2rem;
+  min-height: 40px;
+  height: 10vh;
+  max-height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
