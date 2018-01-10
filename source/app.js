@@ -1,9 +1,9 @@
-
+/* eslint-disable no-new */
 import Vue from 'vue'
 
-import Countdown from './countdown.vue'
+import App from './App.vue'
 
 new Vue({
-  el: '#countdown',
-  render: r => r(Countdown)
+  el: '#app',
+  render: r => r(App)
 })

@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <section class="countdown">
     {{days}} Days {{hours}} Hours {{minutes}} Minutes {{seconds}} Seconds
-  </div>
+  </section>
 </template>
 
 <script>

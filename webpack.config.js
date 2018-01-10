@@ -18,7 +18,7 @@ module.exports = (env = {}) => ({
   },
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.vue'],
     modules: [resolve('source'), 'node_modules'],
     alias: {
       vue: 'vue/dist/vue.js'
@@ -43,9 +43,9 @@ module.exports = (env = {}) => ({
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader','sass-loader']
+          use: ['css-loader', 'sass-loader']
         })
-    }
+      }
 
     ]
   },
@@ -60,4 +60,4 @@ module.exports = (env = {}) => ({
   ],
 
   devtool: env.prod ? 'source-map' : 'eval'
-});
+})
