@@ -1,0 +1,83 @@
+$dark: rgba(36, 36, 36, 1.0);
+$blue: rgba(83, 130, 174, 1.0);
+$green: rgba(111, 185, 178, 1.0);
+$red: rgba(220, 95, 90, 1.0);
+
+.person_container
+{
+  border: 1px solid rgba(36, 36, 36, 1.0);
+  padding: 1rem;
+  border-radius: 2px;
+  margin-top: 2rem;
+  position: relative;
+
+  &:first
+  {
+    margin-top: auto;
+  }
+}
+
+.remove_button
+{
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  border: 1px solid $dark;
+  margin: 0;
+
+  border-radius: 100px;
+  i { font-size: 16px; }
+
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+
+  &:hover, &:active, &:focus
+  {
+    color: #fff;
+    background: $red;
+    border-color: $red;
+  }
+}
+
+
+.rsvp_actions
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+.rsvp_button
+{
+  display: flex;
+  border: 1px solid rgba(36, 36, 36, 1.0);
+  background: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+  align-items: center;
+  cursor: pointer;
+
+  &:hover, &:active, &:focus
+  {
+    background: $blue;
+    border-color: darken($blue, 9);
+    color: #fff;
+  }
+
+  &.save:hover, &.save:active, &.save:focus
+  {
+    background: $green;
+    border-color: darken($green, 9);
+  }
+  
+  i { padding-right: 5px; }
+}

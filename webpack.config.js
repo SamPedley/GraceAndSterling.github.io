@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = (env = {}) => ({
   context: resolve('source'),
 
-  entry: ['app.js', 'styles/main.scss'],
+  entry: ['entry.js', 'styles/main.scss'],
 
   devServer: {
     contentBase: './public'
@@ -18,7 +18,7 @@ module.exports = (env = {}) => ({
   },
 
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['.js', '.vue'],
     modules: [resolve('source'), 'node_modules'],
     alias: {
       vue: 'vue/dist/vue.js'
@@ -43,9 +43,9 @@ module.exports = (env = {}) => ({
       {
         test: /\.scss$/,
         use: ExtractTextPlugin.extract({
-          use: ['css-loader','sass-loader']
+          use: ['css-loader', 'sass-loader']
         })
-    }
+      }
 
     ]
   },
@@ -55,9 +55,10 @@ module.exports = (env = {}) => ({
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: env.prod ? '"production"' : '"dev"'
-      }
+      },
+      SHOW_RSVP: env.rsvp ? 'true' : 'false'
     })
   ],
 
   devtool: env.prod ? 'source-map' : 'eval'
-});
+})
