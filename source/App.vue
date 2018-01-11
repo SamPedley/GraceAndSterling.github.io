@@ -7,23 +7,14 @@
     </div>
 
     <div class="hero-actions">
-      <a
-        class="hero-button"
-        href="https://www.amazon.com/wedding/grace-pedley-sterling-hall-chicago-august-2018/registry/2A5K83MSK5SK8">
-        Amazon Registry
-      </a>
-      <a
-      class="hero-button"
-      href="https://www.kohls.com/upgrade/gift_registry/kohlsgrw_home.jsp?section=list&listid=3363892&viewtype=listview&isfromsearch=true&fname=grace&lname=pedley&regtype=registry.wedding,registry.baby,registry.splday">
-      Kohls Registry
-    </a>
+      <a class="hero-button" :href="amazonRegistry">Amazon Registry</a>
+      <a class="hero-button" :href="kohlsRegistry">Kohls Registry</a>
   </div>
   </section>
-
   
   <countdown date="8/4/2018"></countdown>
 
-  <rsvp></rsvp>
+  <rsvp v-if='showRsvp'></rsvp>
 
   <section class="galery">
     <h2>Grace & Sterling</h2>
@@ -41,9 +32,10 @@
 
   <footer class="site-footer">
     <div class="inner">
-      <p>&copy; 2017</p>
+      <p>&copy; 2017 - 2018</p>
       <nav>
-        <a href="https://www.amazon.com/wedding/grace-pedley-sterling-hall-chicago-august-2018/registry/2A5K83MSK5SK8">The Registry</a>
+        <a :href="amazonRegistry">Amazon Registry</a>
+        <a :href="kohlsRegistry">Kohls Registry</a>
         <a href="https://github.com/SamPedley/grace-and-sterling/issues">Report an issue</a>
       </nav>
     </div>
@@ -56,6 +48,11 @@ import Countdown from './components/countdown'
 import Rsvp from './components/rsvp'
 
 export default {
+  data: () => ({
+    amazonRegistry: 'https://www.amazon.com/wedding/grace-pedley-sterling-hall-chicago-august-2018/registry/2A5K83MSK5SK8',
+    kohlsRegistry: 'https://www.kohls.com/upgrade/gift_registry/kohlsgrw_home.jsp?section=list&listid=3363892&viewtype=listview&isfromsearch=true&fname=grace&lname=pedley&regtype=registry.wedding,registry.baby,registry.splday',
+    showRsvp: SHOW_RSVP || false
+  }),
   components: {
     Countdown,
     Rsvp

@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = (env = {}) => ({
   context: resolve('source'),
 
-  entry: ['app.js', 'styles/main.scss'],
+  entry: ['entry.js', 'styles/main.scss'],
 
   devServer: {
     contentBase: './public'
@@ -55,7 +55,8 @@ module.exports = (env = {}) => ({
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: env.prod ? '"production"' : '"dev"'
-      }
+      },
+      SHOW_RSVP: env.rsvp ? 'true' : 'false'
     })
   ],
 

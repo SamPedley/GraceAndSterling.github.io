@@ -4,7 +4,7 @@
   "description": "Grace and Sterling are getting hitched!",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --env.rsvp",
     "build": "webpack --env.prod",
     "lint": "standard",
     "lint:fix": "standard --fix"
