@@ -1,63 +1,49 @@
 <template>
   <section class='galery'>
     <h2 id='rsvp'>RSVP</h2>
-    <form>
-      <div class='person_container' v-for='(person, index) in people' :key="index">
-        <h3>RSVP for {{person.name || '...'}}</h3>
-
-      <button class='remove_button' v-if='people.length > 1' type='button' @click='onRemove(index)'><i class="material-icons">close</i></button>
-
-      <div class='row'>
-        <div class="form-group col-12 col-sm-6">
-          <label class="sr-only" for="">Name</label>
-          <input type="text" class="form-control" placeholder="Name" v-model='person.name'>
-        </div>
-
-        <div class="form-group col-12 col-sm-6">
-          <label class="sr-only" for="">Email</label>
-         <input type="email" class="form-control" placeholder="Email" v-model='person.email'>
-        </div>
+    <div v-if='showError' class='rsvp-failure'>
+      <h3>:( Oh No!</h3>
+      <p>Looks like our servers are having some issues right now. Don't worry though we've dispatched an angry hord of monkeys to pummle sterling until it's fixed.</p>
+      <p style="marginBottom:0px">However, it looks like you're going to have to rsvp the old fassion way... by email. Please send an email to <a href="mailto:sam@sampedley.com">sam@sampedley.com</a> with your rsvp details</p>
+    </div>
+    <form v-on:submit.prevent='toggleModal'>
+      <div v-if='people.length === 0' @click='onAdd'>Click to add another RSVP</div>
+      <div v-for='(person, index) in people' :key='index'>
+        <form-input
+          :person='person'
+          :on-remove='() => onRemove(index)'
+          :show-close='people.length > 1'>
+        </form-input>
       </div>
 
-
-        <div class="form-group">
-          <label for="">I plan to attend...</label>
-        <select v-model='person.attending' class="form-control">
-          <option disabled value="">Please select one</option>
-          <option value='both'>Both the Ceremony and Reception</option>
-          <option value='ceremony'>Only the Ceremony</option>
-          <option value='reception'>Only the Reception</option>
-          <option value='none'>I will not be able to make the wedding</option>
-        </select>
-        </div>
-
-        <div v-if='person.attending == "both" || person.attending == "reception"'  class="form-group">
-          <label for="">And I would like eat...</label>
-          <select v-model='person.food' class="form-control">
-            <option disabled value="">Please select one</option>
-            <option>Chicken</option>
-            <option>Fish</option>
-            <option>Poop</option>
-          </select>
-        </div>
-
-        <!-- <textarea v-model="person.notes" placeholder="add multiple lines"></textarea> -->
-
-        <p>{{person.food}}</p>
+        <div class='rsvp_actions'>
+        <button class='rsvp_button' @click='onAdd' type='button'><i class='material-icons'>add</i> Add another guest</button>
+        <button class='rsvp_button save' type='submit'>
+          <i class='material-icons'>save</i> {{ showError ? 'Try Sending Again' : 'Send my RSVP' }}
+        </button>
       </div>
     </form>
-
-    <div class='rsvp_actions'>
-      <button class='rsvp_button' @click="onAdd"><i class="material-icons">add</i> Add another guest</button>
-      <button class='rsvp_button save' @click='onSave'><i class="material-icons">save</i> Send my RSVP</button>
+    <confirm-send v-if='showModal' :on-close='toggleModal' :on-confirm='onConfirm' :people='people'></confirm-send>
+    <div v-if='showLoading' class='spinner'>
+      <i class='material-icons'>autorenew</i>
     </div>
   </section>
 </template>
 
 <script>
+  import Form from './Form'
+  import SendingModal from './Sending'
+  import Modal from './modal'
+  import axios from 'axios'
+
   export default {
+    components: { 'form-input': Form, 'confirm-send': SendingModal, modal: Modal },
     data: () => ({
-      people: []
+      people: [],
+      savedPeople: [],
+      showLoading: false,
+      showModal: false,
+      showError: false
     }),
     methods: {
       onAdd(){
@@ -65,17 +51,31 @@
           name: '',
           email: '',
           attending: '',
-          food: '',
           notes: ''
         })
       },
       onRemove(index) {
         if(this.people.length > 1) {
-          this.people = this.people.filter((item, key) => key !== index)
+          this.people = this.people.filter((_, key) => key !== index)
         }
       },
-      onSave() {
-        console.log('save')
+      toggleModal(){
+        this.showModal = !this.showModal
+      },
+      onConfirm() {
+        axios.post('https://api.graceandsterling.com/save')
+        .then(res => {
+            this.showLoading = false
+            this.showModal = false
+            this.showError = false
+            this.savedPeople = [...this.people]
+            this.people = []
+        })
+        .catch(err => {
+          this.showLoading = false
+          this.showModal = false
+          this.showError = true
+        })
       }
     },
     created() { this.onAdd() }

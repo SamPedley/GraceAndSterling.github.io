@@ -78,6 +78,25 @@ $red: rgba(220, 95, 90, 1.0);
     background: $green;
     border-color: darken($green, 9);
   }
+
+  &.warning:hover, &.warning:active, &.warning:focus
+  {
+    background: $red;
+    border-color: darken($red, 9);
+  }
   
   i { padding-right: 5px; }
+}
+
+.rsvp-failure
+{
+  padding: 1rem;
+  background: lighten($red, 9);
+  border: 4px solid darken($red, 9);
+  border-radius: 5px;
+}
+
+.sending-body
+{
+  padding: 1rem 0;
 }

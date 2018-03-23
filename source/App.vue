@@ -51,7 +51,7 @@ export default {
   data: () => ({
     amazonRegistry: 'https://www.amazon.com/wedding/grace-pedley-sterling-hall-chicago-august-2018/registry/2A5K83MSK5SK8',
     kohlsRegistry: 'https://www.kohls.com/upgrade/gift_registry/kohlsgrw_home.jsp?section=list&listid=3363892&viewtype=listview&isfromsearch=true&fname=grace&lname=pedley&regtype=registry.wedding,registry.baby,registry.splday',
-    showRsvp: SHOW_RSVP || false
+    showRsvp: SHOW_RSVP || window.location.search.includes("justforgrace")
   }),
   components: {
     Countdown,

@@ -7,7 +7,9 @@
     "start": "webpack-dev-server --env.rsvp",
     "build": "webpack --env.prod",
     "lint": "standard",
-    "lint:fix": "standard --fix"
+    "lint:fix": "standard --fix",
+    "predeploy": "npm run build",
+    "deploy": "gcloud app deploy app.yaml --project grace-and-sterling"
   },
   "repository": {
     "type": "git",
@@ -36,6 +38,7 @@
     "webpack-dev-server": "^2.9.4"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap": "^4.0.0-beta.2",
     "vue": "^2.5.7"
   }
